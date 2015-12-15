@@ -1,0 +1,25 @@
+.nav{
+  background: #f2f;
+  height: 2em;
+  line-height: 2em;
+  font-size: 1.5em;
+  font-weight: 700;
+  padding-left: 1em;
+}
+
+@media screen and (min-width: 37.5em){
+  .col{
+    font-size: 1.2em;
+  }
+}
+@media screen and (min-width: 48em){
+  .col{
+    font-size: 1.4em;
+  }
+}
+
+@media screen and (min-width: 64em){
+  .col{
+    font-size: 1.6em;
+  }
+}

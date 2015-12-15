@@ -1,0 +1,38 @@
+.nav{
+  background: #f2f;
+  height: 2em;
+  line-height: 2em;
+  font-size: 1.5em;
+  font-weight: 700;
+  padding-left: 1em;
+}
+.row{
+  font-size: 1.5em;
+  font-weight: 700;
+}
+.c1{
+  background: #705F9E;
+  height: 600px;
+}
+.c2{
+  background: #5F989E;
+  height: 200px;
+}
+.c3{
+  background: #EE9786;
+  height: 200px;
+}
+.c4{
+  background: #F1BFC1;
+  height: 200px;
+}
+.c5{
+  background: #F3E8B3;
+  height: 200px;
+}
+
+@media screen and (min-width: 64em){
+    .c2{
+    height: 600px;
+  }
+}
