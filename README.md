@@ -4,6 +4,8 @@
 * [Tiny Tweaks](#tiny-tweaks)
 * [Mostly Fluid](#mostly-fluid)
 * [Column Drop](#column-drop)
+* [Layout Shifter](#layout-shifter)
+* [Off Canvas](#off-canvas)
 * [Referencias](#referencias)
 * [Licencia](#licencia)
 ##Tiny Tweaks
@@ -44,11 +46,11 @@
 ```html
   <div class="container-fluid">
     <div class="row">
-      <sectsection class="c1 col-12 col-lg-12 col-xl-8">Sección 1</sectsection>
-      <sectsection class="c2 col-12 col-lg-6 col-xl-4">Sección 2</sectsection>
-      <sectsection class="c3 col-12 col-lg-6 col-xl-4">Sección 3</sectsection>
-      <sectsection class="c4 col-12 col-lg-6 col-xl-4">Sección 4</sectsection>
-      <sectsection class="c5 col-12 col-lg-6 col-xl-4">Sección 5</sectsection>
+      <section class="c1 col-12 col-lg-12 col-xl-8">Sección 1</section>
+      <section class="c2 col-12 col-lg-6 col-xl-4">Sección 2</section>
+      <section class="c3 col-12 col-lg-6 col-xl-4">Sección 3</section>
+      <section class="c4 col-12 col-lg-6 col-xl-4">Sección 4</section>
+      <section class="c5 col-12 col-lg-6 col-xl-4">Sección 5</section>
     </div>
   </div>
 ```
@@ -161,6 +163,48 @@
   }
 }
 ```
-
+##Off Canvas
+![Off Canvas](images/off-canvas.png "Off Canvas")  
+**HTML**  
+```html
+  <body>
+    <div class="container-fluid">
+      <section class="c1" id="sidePanel">Seccion 1</section>
+      <section class="c2" id="mainPanel">Seccion 2</section>
+    </div>
+    <script src="../vendors/hammer.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+```
+**Styles**
+```css
+.container-fluid{
+  font-size: 1.5em;
+  font-weight: 700;
+}
+.c1 {
+    background-color: #705F9E;
+    position:absolute;
+    height: 100vh;
+    width: 250px;
+    color: white;
+    transform: translate(-250px, 0);
+    transition: transform .3s ease-out;
+    z-index: 1;
+}
+.c1.open {
+  transform: translate(0,0);
+}
+.c2 {
+    background-color: #5F989E;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+}
+```
+##Referencias
+**Carlos Azaustre** [Los 5 patrones del Responsive Design con Flexbox](https://carlosazaustre.es/blog/los-5-patrones-del-responsive-design/)
+**Luke Wroblewski** [Multi-Device Layout Patterns](http://www.lukew.com/ff/entry.asp?1514)
+**Google Developers** [Responsive web design patterns](https://developers.google.com/web/fundamentals/design-and-ui/responsive/patterns/?hl=en)
 ##Licencia
 [The MIT License (MIT)](https://github.com/alexballera/responsive-design-patterns/blob/master/LICENSE) Copyright (c) 2015 Alex Ballera
