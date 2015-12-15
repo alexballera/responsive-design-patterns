@@ -1,10 +1,14 @@
 .nav{
-  background: #f2f;
+  background: #754760;
   height: 2em;
   line-height: 2em;
   font-size: 1.5em;
   font-weight: 700;
   padding-left: 1em;
+}
+.container-fluid{
+  background: #5F989E;
+  height: 100vh;
 }
 
 @media screen and (min-width: 37.5em){

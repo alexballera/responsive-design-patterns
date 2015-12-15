@@ -13,18 +13,31 @@
 ![Tiny Tweaks](images/tiny-tweaks.png "Tiny Tweaks")  
 **HTML**  
 ```html
-<nav class="nav">Navbar</nav>
-<div class="container">
+<nav class="nav">Tiny Tweaks</nav>
+<div class="container-fluid">
   <div class="row">
     <article class="col">
     <h2>Tiny Tweaks</h2>
-    <p> Lorem...</p>
+    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia sequi odit reprehenderit doloremque nam quia libero eum quidem? Debitis consectetur ex voluptates iste obcaecati nemo sit reiciendis earum tempora et.</p>
    </article>
   </div>
 </div>
 ```
 **Styles**  
 ```css
+.nav{
+  background: #754760;
+  height: 2em;
+  line-height: 2em;
+  font-size: 1.5em;
+  font-weight: 700;
+  padding-left: 1em;
+  position: fixed;
+  width: 100vw;
+}
+.container-fluid{
+  height: 100vh;
+}
 @media screen and (min-width: 37.5em){
   .col{
     font-size: 1.2em;
@@ -45,18 +58,26 @@
 ![Mostly Fluid](images/mostly-fluid.png "Mostly Fluid")  
 **HTML**  
 ```html
+  <nav class="nav">Mostly Fluid</nav>
   <div class="container-fluid">
     <div class="row">
-      <section class="c1 col-12 col-lg-12 col-xl-8">Sección 1</section>
-      <section class="c2 col-12 col-lg-6 col-xl-4">Sección 2</section>
-      <section class="c3 col-12 col-lg-6 col-xl-4">Sección 3</section>
-      <section class="c4 col-12 col-lg-6 col-xl-4">Sección 4</section>
-      <section class="c5 col-12 col-lg-6 col-xl-4">Sección 5</section>
+      <section class="c1 col-12 col-sm-12 col-md-12 col-lg-8">Sección 1</section>
+      <section class="c2 col-12 col-sm-12 col-md-6 col-lg-4">Sección 2</section>
+      <section class="c3 col-12 col-sm-12 col-md-6 col-lg-4">Sección 3</section>
+      <section class="c4 col-12 col-sm-12 col-md-6 col-lg-4">Sección 4</section>
+      <section class="c5 col-12 col-sm-12 col-md-6 col-lg-4">Sección 5</section>
     </div>
   </div>
 ```
 **Styles**  
 ```css
+.container-fluid{
+  padding-top: 3em;
+}
+.row{
+  font-size: 1.5em;
+  font-weight: 700;
+}
 .c1{
   background: #705F9E;
   height: 600px;
@@ -78,8 +99,11 @@
   height: 200px;
 }
 @media screen and (min-width: 64em){
-    .c2{
+  .c2{
     height: 600px;
+  }
+  .container-fluid{
+    width: 64em;
   }
 }
 ```
@@ -87,6 +111,7 @@
 ![Column Drop](images/column-drop.png "Column Drop")  
 **HTML**  
 ```html
+  <nav class="nav">Column Drop</nav>
   <div class="container-fluid">
     <div class="row">
       <section class="c1 col-12 col-md-12 col-lg-8 col-xl-6">Sección 1</section>
@@ -99,7 +124,7 @@
 ```css
 .c1{
   background: #705F9E;
-  height: 600px;
+  height: 400px;
 }
 .c2{
   background: #5F989E;
@@ -112,10 +137,12 @@
 
 @media screen and (min-width: 48em){
     .c2{
-    height: 600px;
+    height: 400px;
   }
 }
 @media screen and (min-width: 64em){
+    .c1,
+    .c2,
     .c3{
     height: 600px;
   }
@@ -170,8 +197,13 @@
 ```html
   <body>
     <div class="container-fluid">
-      <section class="c1" id="sidePanel">Seccion 1</section>
-      <section class="c2" id="mainPanel">Seccion 2</section>
+      <section class="c1" id="sidePanel">Menú</section>
+      <section class="c2" id="mainPanel">
+      <div class="contenido">
+        <h1>Contenido</h1>
+      <p>Click con el mouse para que se despliegue el menú</p>
+      </div>
+      </section>
     </div>
     <script src="../vendors/hammer.min.js"></script>
     <script src="main.js"></script>
@@ -202,6 +234,28 @@
     height: 100vh;
     position: absolute;
 }
+```
+**Scripts**
+```javascript
+(function() {
+
+  var mainPanel = document.getElementById('mainPanel');
+  var sidePanel = document.getElementById('sidePanel');
+
+  var hammerPanel = new Hammer(mainPanel);
+  var hammerSide = new Hammer(sidePanel);
+
+  /* Navegador Mobile */
+  hammerPanel.on('swiperight', onSwipe);
+
+  /* Navegador Desktop */
+  mainPanel.addEventListener('click', onSwipe)
+
+  function onSwipe() {
+    sidePanel.classList.toggle('open');
+  }
+  
+}());
 ```
 ##Referencias
 **Carlos Azaustre** [Los 5 patrones del Responsive Design con Flexbox](https://carlosazaustre.es/blog/los-5-patrones-del-responsive-design/)  
